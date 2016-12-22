@@ -4,7 +4,7 @@ MAINTAINER mark<mark.oliver.schmitt@gmail.com>
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
 
 # openssh for jenkins, openjre for jenkins slave. this prevents the jenkins setup to download this every time
-RUN apt-get update && apt-get install -y maven openssh-server openjdk-8-jre-headless && apt-get clean
+RUN apt-get update && apt-get install -y maven openssh-server openjdk-8-jre-headless git && apt-get clean
 
 RUN useradd -m -d /home/jenkins -s /bin/sh jenkins &&\
   echo "jenkins:jenkins" | chpasswd
